@@ -1,5 +1,7 @@
 .DS_Store
+input/
 output/
+output_new/
 output_csv/
 
 # Byte-compiled / optimized / DLL files
