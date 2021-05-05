@@ -9,6 +9,9 @@ circunscripciones_path = "input/circunscripciones.csv"
 
 circs = pandas.read_csv(circunscripciones_path)
 
+if not os.path.exists(output_folder):
+    os.mkdir(output_folder)
+
 files = os.listdir(input_folder)
 #files = ['A13114.pdf']
 

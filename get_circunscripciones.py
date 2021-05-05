@@ -1,8 +1,10 @@
 import requests
 import pandas as pd
+import os
 
 # Variables
-circunscripciones_path = "input/circunscripciones.csv"
+input_folder = "input"
+circunscripciones_file = "circunscripciones.csv"
 
 total_circ = pd.DataFrame()
 
@@ -20,4 +22,10 @@ for comuna in comunas:
     total_circ = total_circ.append(circs)
 
 total_circ.rename(columns = {'d':'circunscripcion', 'c':'cod_circunscripcion'}, inplace = True)
+
+# guardar archivo
+if not os.path.exists(input_folder):
+    os.mkdir(input_folder)
+
+circunscripciones_path = os.path.join(input_folder, circunscripciones_file)
 total_circ.to_csv(circunscripciones_path, index=False)
