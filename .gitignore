@@ -1,11 +1,9 @@
 .DS_Store
 input/
 output/
-output_new/
-output_csv/
-output_old/
-output_zip/
-output_csv_old/
+output_*/
+
+config.json
 
 
 # Byte-compiled / optimized / DLL files
