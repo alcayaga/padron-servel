@@ -28,6 +28,7 @@ for file in files:
         
         dic = page.getText("dict")
 
+        # inicializar variables usadas
         region = ''
         provincia = ''
         comuna = ''
@@ -38,6 +39,8 @@ for file in files:
         id_header = len(dic['blocks'])
 
         for block in dic['blocks']:
+
+            # primero se itera en el encabezado hasta determinar que desaparece
             if i < id_header:
                 first_column = block['lines'][0]['spans'][0]['text']
 
@@ -53,6 +56,7 @@ for file in files:
                         circs_locales = circs[circs.comuna == comuna]
                     
                     elif block['lines'][0]['spans'][0]['text'] == 'NOMBRE':
+                        # de aquí en adelante aparecen los datos
                         id_header = i
 
             
