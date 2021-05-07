@@ -1,3 +1,7 @@
 {
-    "google_maps_key": "YOUR GOOGLE MAPS API KEY"
+    "google_maps_key": "YOUR GOOGLE MAPS API KEY",
+
+    "plebiscito_table": "project.padron.plebiscito",
+
+    "bucket": "gs://my-bucket/output_csv"
 }

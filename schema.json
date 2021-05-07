@@ -1,0 +1,38 @@
+[
+    {
+      "name": "nombre",
+      "type": "string"
+    },
+    {
+      "name": "ci",
+      "type": "string"
+    },
+    {
+        "name": "genero",
+        "type": "string"
+    },
+    {
+        "name": "direccion",
+        "type": "string"
+    },
+    {
+        "name": "circunscripcion",
+        "type": "string"
+    },
+    {
+        "name": "mesa",
+        "type": "string"
+    },
+    {
+        "name": "region",
+        "type": "string"
+    },
+    {
+        "name": "provincia",
+        "type": "string"
+    },
+    {
+        "name": "comuna",
+        "type": "string"
+    }
+]
