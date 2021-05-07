@@ -22,7 +22,7 @@ padron_dir = padron[~padron['direccion'].isnull()].copy()
 padron_nodir = padron[padron['direccion'].isnull()]
 
 # obtener dirección sanitizada sin departamento o piso
-padron_dir['direccion_limpia'] = padron_dir['direccion'].str.replace(' (OF|D|DEPTO|DEP|DPTO|DP|PISO)(\.)?(\s|/)?[0-9]+.*', '', regex=True)
+padron_dir['direccion_limpia'] = padron_dir['direccion'].str.replace(' (D|D/|DEPTO|DEP|DPTO|DP|DEPARTAMENTO|PISO|OF|OFICINA|OFC)(\\.)?(\\s|/)?[0-9]+.*', '', regex=True)
 padron_dir['direccion_completa'] = padron_dir.direccion_limpia + ', ' + padron_dir.comuna
 
 # obtener geocode
