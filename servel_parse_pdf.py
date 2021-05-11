@@ -3,8 +3,8 @@ import fitz
 import pandas
 
 # Variables
-input_folder = "output"
-output_folder = "output_csv"
+input_folder = "output_new"
+output_folder = "output_csv_new"
 circunscripciones_path = "input/circunscripciones.csv"
 
 circs = pandas.read_csv(circunscripciones_path)
@@ -44,7 +44,7 @@ for file in files:
             if i < id_header:
                 first_column = block['lines'][0]['spans'][0]['text']
 
-                if first_column != 'PADRÓN AUDITADO PLEBISCITO NACIONAL 2020':
+                if (first_column != 'PADRÓN AUDITADO PLEBISCITO NACIONAL 2020') & (first_column[1:29] != 'PADRÓN DEFINITIVO ELECCIONES'):
                     if first_column == '  REGIÓN':
                         region = block['lines'][1]['spans'][0]['text'][2:]
 
@@ -62,7 +62,7 @@ for file in files:
             
             else:
                 # dependiendo de cuantas lineas tiene el bloque (parrafo) es como se interpreta el orden de los campos
-                if len(block['lines']) == 5:
+                if len(block['lines']) >= 5:
                     nombre = block['lines'][0]['spans'][0]['text']
                     ci = block['lines'][1]['spans'][0]['text']
 
@@ -80,6 +80,12 @@ for file in files:
                     direccion = genero_direccion[gd_index+1:]
                     circunscripcion = block['lines'][3]['spans'][0]['text']
                     mesa = block['lines'][4]['spans'][0]['text']
+
+                    indigena = ''
+
+                    if len(block['lines']) >= 6:
+                        indigena = block['lines'][5]['spans'][0]['text']
+
 
                 else:
                     nombre = block['lines'][0]['spans'][0]['text']
@@ -116,6 +122,7 @@ for file in files:
                     'Direccion': direccion,
                     'Circunscripcion': circunscripcion,
                     'Mesa': mesa,
+                    'Indigena': indigena,
                     'Region': region,
                     'Provincia': provincia,
                     'Comuna': comuna
