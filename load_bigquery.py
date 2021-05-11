@@ -2,6 +2,8 @@ import json
 import subprocess
 from google.cloud import bigquery
 
+# variables
+input_folder = 'output_zip'
 
 with open('schema.json',) as f:
     schema = json.load(f)
@@ -9,7 +11,7 @@ with open('schema.json',) as f:
 with open('config.json',) as f:
     config = json.load(f)
 
-subprocess.call("gsutil -m cp * " + config['bucket'], shell=True)
+subprocess.call("gsutil -m cp " + input_folder + "/* " + config['bucket'], shell=True)
 
 #subprocess.call("gsutil ls " + config['bucket'], shell=True)
 
