@@ -24,7 +24,7 @@ for file in files:
     padron = []
 
     for page in doc:
-        print("Parsing Page " + str(page.number) + "/" + str(len(doc)))
+        #print("Parsing Page " + str(page.number) + "/" + str(len(doc)))
         
         dic = page.getText("dict")
 
