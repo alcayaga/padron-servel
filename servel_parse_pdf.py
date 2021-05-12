@@ -13,6 +13,7 @@ if not os.path.exists(output_folder):
     os.mkdir(output_folder)
 
 files = os.listdir(input_folder)
+#files = ['A01101.pdf']
 #files = ['A13114.pdf']
 
 for file in files:
@@ -62,7 +63,7 @@ for file in files:
             
             else:
                 # dependiendo de cuantas lineas tiene el bloque (parrafo) es como se interpreta el orden de los campos
-                if len(block['lines']) >= 5:
+                if len(block['lines'][2]['spans'][0]['text']) < 71:
                     nombre = block['lines'][0]['spans'][0]['text']
                     ci = block['lines'][1]['spans'][0]['text']
 
@@ -112,6 +113,11 @@ for file in files:
                     circunscripcion = genero_direccion_circunscripcion[direccion_index+1:]
 
                     mesa = block['lines'][3]['spans'][0]['text']
+
+                    indigena = ''
+
+                    if len(block['lines']) >= 5:
+                        indigena = block['lines'][4]['spans'][0]['text']
 
                 #print(nombre, ci, genero, direccion, circunscripcion, mesa, sep=',')
 
